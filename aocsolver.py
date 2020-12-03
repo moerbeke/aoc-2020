@@ -21,7 +21,10 @@ class AocSolver:
     def run(self):
         args = self._parse_cmd_line_args()
         print("\n===== AoC-2020 day #%d =====\n" % self._day)
-        input_filename = str(self._day) + '.in'
+        sday = str(self._day)
+        if self._day < 10:
+            sday = '0' + sday
+        input_filename = sday + '.in'
         input_str = self._read_file(input_filename)
         self._day_parse_input(input_str)
         if args.part_2_only:
