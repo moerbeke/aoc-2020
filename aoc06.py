@@ -12,47 +12,37 @@ day = 6
 # Algorithms
 ########################################################################
 
+_questions = 'abcdefghijklmnopqrstuvwxyz'
+
 def parse_input(input_str):
     global _groups
-    global _people
     _groups = list()
-    _people = list()
-    i = 0
-    new_group = True
-    _groups.append('')
-    _people.append(list())
+    group = list()
     input_str = input_str.strip() + '\n'
     for line in input_str.split('\n'):
         if len(line) > 0:
-            if new_group:
-                _groups.append('')
-                _people.append(list())
-                new_group = False
-            _groups[i] += line
-            _people[i].append(set(line))
+            group.append(set(line))
         else:
-            new_group = True
-            i += 1
+            _groups.append(group)
+            group = list()
 
 def reset():
     return
 
 def count_yes_any(group):
     n = 0
-    questions = 'abcdefghijklmnopqrstuvwxyz'
-    for q in questions:
-        if q in group:
+    answers = set.union(*group)
+    for q in _questions:
+        if q in answers:
             n += 1
     return n
 
 def count_yes_all(group):
     n = 0
-    questions = 'abcdefghijklmnopqrstuvwxyz'
-    if len(group) > 0:
-        people = set.intersection(*group)
-        for q in questions:
-            if q in people:
-                n += 1
+    answers = set.intersection(*group)
+    for q in _questions:
+        if q in answers:
+            n += 1
     return n
 
 def solve_1():
@@ -63,7 +53,7 @@ def solve_1():
 
 def solve_2():
     n = 0
-    for g in _people:
+    for g in _groups:
         n += count_yes_all(g)
     return n
 
