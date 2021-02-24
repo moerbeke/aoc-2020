@@ -28,7 +28,6 @@ Solve _day 1_, both parts:
 ./aoc01.py
 ```
 
-
 ## Copyright details
 
 Copyright (C) 2020-2021 Antonio Ceballos Roa
