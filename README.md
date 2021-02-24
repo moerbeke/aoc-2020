@@ -29,6 +29,6 @@ Solve _day 1_, both parts:
 ```
 
 
-## Copyright
+## Copyright details
 
 Copyright (C) 2020-2021 Antonio Ceballos Roa
