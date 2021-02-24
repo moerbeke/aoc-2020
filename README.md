@@ -30,4 +30,4 @@ Solve _day 1_, both parts:
 
 ## Copyright
 
-Copyright (C) 2020 Antonio Ceballos Roa
+Copyright (C) 2020-2021 Antonio Ceballos Roa
